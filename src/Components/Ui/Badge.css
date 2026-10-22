@@ -1,0 +1,33 @@
+/* ================================
+   BADGE
+================================ */
+
+.dz-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 8px;
+
+  border-radius: var(--radius-pill, 9999px);
+
+  font-size: 11px;
+  font-weight: var(--font-weight-bold, 700);
+  line-height: 13px;
+  white-space: nowrap;
+}
+
+.dz-badge--primary {
+  background: var(--color-primary, #d90000);
+  color: #fff;
+}
+
+.dz-badge--dark {
+  background: #292929;
+  color: #fff;
+}
+
+.dz-badge--light {
+  background: #f1f1f1;
+  color: #292929;
+}

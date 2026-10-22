@@ -1,0 +1,620 @@
+/* ================================
+   DUBIZZLE HEADER
+================================ */
+
+.dz-header {
+  position: relative;
+  z-index: 500; /* stay above hero / page sections */
+  width: 100%;
+  background: var(--color-background, #fff);
+  color: var(--color-text, #292929);
+  font-family: var(--font-family, "Inter", sans-serif);
+}
+
+/* ================================
+   TOP HEADER — 60px
+================================ */
+
+.dz-topbar {
+  position: relative;
+  z-index: 101;
+
+  width: 100%;
+  height: 60px;
+  min-height: 60px;
+  padding: 0 4.3%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  background: var(--color-background, #fff);
+  border-bottom: 1px solid var(--color-border, #e0e0e0);
+}
+
+/* Logo and location */
+
+.dz-brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.dz-logo {
+  display: block;
+  width: auto;
+  height: 32px;
+  object-fit: contain;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ================================
+   ACCOUNT NAVIGATION
+================================ */
+
+.dz-account-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 29px;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+.dz-account-link {
+  position: relative;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  min-height: 44px;
+  flex-shrink: 0;
+
+  color: var(--color-text-secondary, #60646b);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 13px;
+  white-space: nowrap;
+  text-decoration: none;
+
+  transition: color var(--transition-fast, 150ms ease);
+}
+
+.dz-account-link svg {
+  width: 17px;
+  height: 17px;
+  stroke-width: 1.7;
+  flex-shrink: 0;
+}
+
+/* Login */
+
+.dz-login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 36px;
+  padding: 0 2px;
+
+  color: var(--color-text, #292929);
+  font-size: 13px;
+  line-height: 16px;
+  white-space: nowrap;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+/* Mobile menu button: hidden on desktop (look comes from IconButton) */
+
+.dz-header .dz-mobile-toggle {
+  display: none;
+}
+
+/* ================================
+   CATEGORY NAVIGATION
+================================ */
+
+.dz-category-nav {
+  width: 100%;
+  min-height: 56px;
+  padding: 0 6.1%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  overflow-x: auto;
+  background: var(--color-background, #fff);
+  border-bottom: 1px solid var(--color-border, #e0e0e0);
+
+  scrollbar-width: none;
+}
+
+.dz-category-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.dz-category-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  min-height: 40px;
+  flex-shrink: 0;
+
+  color: var(--color-text, #292929);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium, 500);
+  line-height: 17px;
+  white-space: nowrap;
+  text-decoration: none;
+
+  transition: color var(--transition-fast, 150ms ease);
+}
+
+/* ================================
+   TABLET — 1100px
+================================ */
+
+@media (max-width: 1100px) {
+  .dz-topbar {
+    padding-inline: 24px;
+    gap: 13px;
+  }
+
+  .dz-brand {
+    gap: 12px;
+  }
+
+  .dz-logo {
+    height: 29px;
+  }
+
+  .dz-account-nav {
+    gap: 13px;
+  }
+
+  .dz-account-link {
+    font-size: 9px;
+  }
+
+  .dz-account-link svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .dz-category-nav {
+    padding-inline: 24px;
+    justify-content: flex-start;
+    gap: 25px;
+  }
+}
+
+/* ================================
+   MOBILE — 768px
+================================ */
+
+@media (max-width: 768px) {
+  .dz-topbar {
+    height: 60px;
+    min-height: 60px;
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  .dz-brand {
+    gap: 10px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .dz-logo {
+    height: 27px;
+  }
+
+  .dz-header .dz-mobile-toggle {
+    display: inline-flex;
+  }
+
+  .dz-account-nav {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    padding: 16px;
+    box-sizing: border-box;
+
+    background: var(--color-background, #fff);
+    border-bottom: 1px solid var(--color-border, #e0e0e0);
+    box-shadow: var(--shadow-md, 0 4px 10px #00000010);
+  }
+
+  .dz-account-nav.is-open {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px 10px;
+  }
+
+  .dz-account-link {
+    min-width: 0;
+    min-height: 42px;
+    font-size: 10px;
+  }
+
+  .dz-account-link svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .dz-login,
+  .dz-ad-button {
+    grid-column: 1 / -1;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .dz-login {
+    min-height: 36px;
+  }
+
+  /* layout of the Button inside the mobile account menu */
+  .dz-ad-button {
+    width: 100%;
+  }
+
+  .dz-category-nav {
+    min-height: 48px;
+    padding-inline: 16px;
+    justify-content: flex-start;
+    gap: 22px;
+  }
+
+  .dz-category-link {
+    min-height: 38px;
+    font-size: 12px;
+  }
+}
+
+/* ================================
+   SMALL MOBILE — 380px
+================================ */
+
+@media (max-width: 380px) {
+  .dz-topbar {
+    padding-inline: 10px;
+    gap: 6px;
+  }
+
+  .dz-brand {
+    gap: 6px;
+  }
+
+  .dz-logo {
+    height: 24px;
+  }
+
+  .dz-header .dz-mobile-toggle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .dz-category-nav {
+    padding-inline: 12px;
+    gap: 18px;
+  }
+
+  .dz-category-link {
+    font-size: 11px;
+  }
+}
+
+/* ================================
+   JOBS MEGA MENU
+================================ */
+
+.dz-jobs-menu {
+  position: absolute;
+  top: 100%;
+  left: var(--jobs-left, 0);
+  z-index: 999;
+
+  display: flex;
+  align-items: flex-start;
+  width: max-content; /* fixed size: no squeezing near the screen edge */
+  max-width: calc(100vw - 24px);
+  max-height: 80vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0s linear 0.18s;
+}
+
+.dz-jobs-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.dz-jobs-left {
+  flex: 0 0 auto;
+  min-width: 220px;
+  padding: 20px 20px 24px;
+  box-sizing: border-box;
+}
+
+.dz-jobs-group + .dz-jobs-group {
+  margin-top: 22px;
+}
+
+.dz-jobs-group-title {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #292929;
+}
+
+.dz-jobs-item {
+  display: block;
+  padding: 7px 0;
+  font-size: 14px;
+  color: #383838;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.dz-jobs-item:hover,
+.dz-jobs-item.active {
+  color: rgb(15, 93, 196);
+}
+
+.dz-jobs-hire {
+  display: block;
+  margin-top: 22px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #292929;
+  text-decoration: none;
+}
+
+.dz-jobs-hire:hover {
+  color: rgb(15, 93, 196);
+}
+
+.dz-jobs-right {
+  flex: 0 0 auto;
+  width: 420px;
+  min-width: 0;
+  padding: 20px 22px 24px;
+  box-sizing: border-box;
+  border-left: 1px solid #f0f0f0;
+  align-self: stretch;
+}
+
+.dz-jobs-right-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.dz-jobs-right-head h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #292929;
+}
+
+.dz-jobs-right-head a {
+  font-size: 12px;
+  font-weight: 600;
+  color: #d90000;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dz-jobs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dz-jobs-list.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(10, auto);
+  grid-auto-flow: column;
+  column-gap: 20px;
+}
+
+.dz-jobs-list a {
+  display: block;
+  padding: 6px 0;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #60646b;
+  text-decoration: none;
+}
+
+.dz-jobs-list a:hover {
+  color: rgb(15, 93, 196);
+}
+
+/* Jobs hovered / menu open: dark text + black bar at the bottom */
+.dz-category-link {
+  position: relative;
+}
+
+.dz-category-link.active.menu-open {
+  color: #292929;
+  text-decoration: none;
+}
+
+.dz-category-link.menu-open::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px; /* sits on the nav's bottom edge, touching the menu */
+  height: 4px;
+  background: #000;
+}
+
+/* chevron + inline accordion list are phone-only */
+.dz-jobs-chevron,
+.dz-jobs-inline {
+  display: none;
+}
+
+.dz-jobs-item-wrap {
+  min-width: 0;
+}
+
+/* desktop/tablet: the right panel is used, so hide the inline (phone) list.
+   Needs two classes to beat ".dz-jobs-list.two-col" (display: grid) */
+@media (min-width: 769px) {
+  .dz-jobs-list.dz-jobs-inline {
+    display: none;
+  }
+}
+
+/* ---------- TABLET (<= 1100px): menu spans the screen ---------- */
+@media (max-width: 1100px) {
+  .dz-jobs-menu {
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: none;
+  }
+
+  .dz-jobs-left {
+    min-width: 220px;
+  }
+
+  .dz-jobs-right {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    padding-inline: 20px;
+  }
+
+  .dz-jobs-list.two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+}
+
+/* ---------- PHONE (<= 768px): full width accordion ---------- */
+@media (max-width: 768px) {
+  .dz-jobs-menu {
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - 120px);
+    max-height: calc(100dvh - 120px);
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dz-jobs-left {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 16px 20px;
+  }
+
+  /* side panel replaced by the accordion */
+  .dz-jobs-right {
+    display: none;
+  }
+
+  .dz-jobs-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  .dz-jobs-chevron {
+    display: block;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .dz-jobs-item.active .dz-jobs-chevron {
+    transform: rotate(180deg);
+  }
+
+  .dz-jobs-inline {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 4px 0 8px 12px;
+    background: #fafafa;
+  }
+
+  .dz-jobs-inline.two-col {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-flow: row;
+    column-gap: 12px;
+  }
+
+  .dz-jobs-inline a {
+    padding: 10px 0;
+    font-size: 13px;
+  }
+
+  .dz-jobs-viewall {
+    grid-column: 1 / -1;
+  }
+
+  .dz-jobs-viewall a {
+    color: #d90000;
+    font-weight: 600;
+  }
+
+  .dz-jobs-hire {
+    margin-top: 16px;
+    padding: 8px 0;
+  }
+
+  .dz-category-link.menu-open::after {
+    height: 3px;
+    bottom: -4px;
+  }
+}
